@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+
+<h2>Guess the color Mario Vargas</h2>
+
+<!-- Input for mystery color -->
+<label for="mysteryColor">Guess the color:</label>
+<input type="password" id="mysteryColor" value="Red"><br><br>
+
+<!-- Input for color guess -->
+<label for="colorGuess">Enter a guess:</label>
+<input type="text" id="colorGuess"><br><br>
+
+<!-- Button to check the color -->
+<button onclick="processColor()">Check the color</button><br><br>
+
+<!-- display results -->
+<div id="result"></div>
+
+
+<script>
+
+    let attempts = 0;
+    let wrong = 0;
+
+    // Function to process the color guessing
+    function processColor() {
+        // Get the value from the secret color input 
+        const mysteryColor = document.getElementById('mysteryColor').value;
+        // Get the value from the color guess input 
+        const colorGuess = document.getElementById('colorGuess').value;
+
+        // Compare the values
+        if (colorGuess.toLowerCase() !== mysteryColor.toLowerCase()) {
+            wrong++; // Add one to wrong if the guess is incorrect
+            alert("That was not it");
+        } else {
+            alert("You got it");
+        }
+        // Add one to attempts after each guess
+        attempts++; 
+
+        // Update the result
+        document.getElementById('result').innerHTML = `Attempts: ${attempts}, Wrong: ${wrong}`;
+    }
+</script>
+
+</body>
+</html> 
