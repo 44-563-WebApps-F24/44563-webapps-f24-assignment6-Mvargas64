@@ -19,6 +19,13 @@
 <!-- display results -->
 <div id="result"></div>
 
+ <!-- Div container with one image -->
+ <div id="imageContainer">
+    <img id="plantImage" src="plant1.jpg" width="200" height="200" onclick="nextImage()" alt="Plant 1">
+    
+</div>
+
+
 
 <script>
 
@@ -45,6 +52,30 @@
         // Update the result
         document.getElementById('result').innerHTML = `Attempts: ${attempts}, Wrong: ${wrong}`;
     }
+
+        // Global variable showing
+        let showing = 1;
+
+function nextImage() {
+    // Switch on the showing variable
+    switch (showing) {
+        case 1:
+            document.getElementById('plantImage').src = 'plant2.jpg';
+            showing = 2;
+            break;
+        case 2:
+            document.getElementById('plantImage').src = 'plant3.jpg';
+            showing = 3;
+            break;
+        case 3:
+            document.getElementById('plantImage').src = 'plant1.jpg';
+            showing = 1;
+            break;
+        default:
+            showing = 1;
+            break;
+    }
+}
 </script>
 
 </body>
