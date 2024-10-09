@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunch Order Form</title>
+</head>
+<body>
+
+<h2> Lunch Orders</h2>
+
+<form>
+    <div>
+        <label>
+            <input type="checkbox" id="drink" value="drink">
+            Drink
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" id="side" value="side">
+            Side
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" id="in" value="in">
+            Eat in
+        </label>
+    </div>
+    
+    <input type="button" onclick="startLunch()" value="Start a lunch order">
+</form>
+
+<div id="result"></div>
+
+<script>
+    // Global variable
+    let my_lunch = {};
+
+    function startLunch() {
+    // Reset the my_lunch object
+    my_lunch = {};
+
+    // Set properties based on checkbox values
+    my_lunch.drink = document.getElementById("drink").checked;
+    my_lunch.side = document.getElementById("side").checked;
+    my_lunch.in = document.getElementById("in").checked;
+
+    // Create a string to display the result
+    const resultText = `
+        Drink: ${my_lunch.drink ? 'Yes' : 'No'}<br>
+        Side: ${my_lunch.side ? 'Yes' : 'No'}<br>
+        Eat in: ${my_lunch.in ? 'Yes' : 'No'}
+    `;
+
+    out = document.getElementById("result")
+   
+   out.innerHTML = resultText
+  
+}
+
+    
+</script>
+
+</body>
+</html>
