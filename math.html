@@ -20,6 +20,25 @@
 
 <p id="result"></p>
 
+
+
+<form>
+  
+    <input type="radio" id="max_value" name="operation" value="max" checked onclick="processRadio()">
+    <label for="max_value">Max</label><br>
+
+    <input type="radio" id="min_value" name="operation" value="min" onclick="processRadio()">
+    <label for="min_value">Min</label><br>
+
+    <input type="radio" id="average_value" name="operation" value="avg" onclick="processRadio()">
+    <label for="average_value">Average</label><br>
+
+    <input type="radio" id="geometric_value" name="operation" value="geo" onclick="processRadio()">
+    <label for="geometric_value">Geometric</label><br><br>
+
+    <input type="button" onclick="processRadio()" value="Get values from radio group">
+  </form>
+
 <script> 
 
 function powerSum(){
@@ -38,8 +57,37 @@ function powerSum(){
     
             out = document.getElementById("result")
    
-        out.innerHTML = "sum is: "+sum;
+        out.innerHTML = "Sum of "+firstValue+" powers with base "+secondValue+" is "+sum;
+        }
 
+        function processRadio() {
+
+    // Initialize variables for the operation and result
+    let operation = '';
+    let result = 0;
+
+    const maxChecked = document.getElementById("max_value").checked;
+    const minChecked = document.getElementById("min_value").checked;
+    const avgChecked = document.getElementById("average_value").checked;
+    const geoChecked = document.getElementById("geometric_value").checked;
+
+    if (maxChecked) {
+        operation = "Max";
+        result = Math.max(firstValue, secondValue);
+    } else if (minChecked) {
+        operation = "Min";
+        result = Math.min(firstValue, secondValue);
+    } else if (avgChecked) {
+        operation = "Average";
+        result = (firstValue + secondValue) / 2;
+    } else if (geoChecked) {
+        operation = "Geometric";
+        result = Math.sqrt(firstValue * secondValue);
+    }
+
+    out = document.getElementById("result")
+   
+   out.innerHTML = "Computed "+operation+" with values "+firstValue+" and "+secondValue+" with result "+result;
     
 }
 </script>
