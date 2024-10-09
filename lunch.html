@@ -7,8 +7,9 @@
 </head>
 <body>
 
-<h2> Lunch Orders</h2>
+<h2>Lunch Orders</h2>
 
+<!-- Checkbox form -->
 <form>
     <div>
         <label>
@@ -34,33 +35,62 @@
 
 <div id="result"></div>
 
+<!-- New form for updating properties -->
+<h2>Update Lunch Property</h2>
+<form>
+    <div>
+        <label for="propertyInput">Enter property:</label>
+        <input type="text" id="propertyInput" value="entree">
+    </div>
+    <div>
+        <label for="valueInput">Set it to:</label>
+        <input type="text" id="valueInput">
+    </div>
+    <input type="button" onclick="updateLunch()" value="Update the lunch">
+</form>
+
 <script>
     // Global variable
     let my_lunch = {};
 
     function startLunch() {
-    // Reset the my_lunch object
-    my_lunch = {};
+        // Reset the my_lunch object
+        my_lunch = {};
 
-    // Set properties based on checkbox values
-    my_lunch.drink = document.getElementById("drink").checked;
-    my_lunch.side = document.getElementById("side").checked;
-    my_lunch.in = document.getElementById("in").checked;
+        // Set properties based on checkbox values
+        my_lunch.drink = document.getElementById("drink").checked;
+        my_lunch.side = document.getElementById("side").checked;
+        my_lunch.in = document.getElementById("in").checked;
+
+        // Create a string to display the result
+        const resultText = `
+            Drink: ${my_lunch.drink ? 'Yes' : 'No'}<br>
+            Side: ${my_lunch.side ? 'Yes' : 'No'}<br>
+            Eat in: ${my_lunch.in ? 'Yes' : 'No'}
+        `;
+
+        out = document.getElementById("result")
+        out.innerHTML = resultText;
+    }
+
+    function updateLunch() {
+    // Get the property and value from the input elements
+    const property = document.getElementById("propertyInput").value;
+    const value = document.getElementById("valueInput").value;
+
+    // Update the my_lunch object with the new property and value
+    my_lunch[property] = value;
 
     // Create a string to display the result
-    const resultText = `
-        Drink: ${my_lunch.drink ? 'Yes' : 'No'}<br>
-        Side: ${my_lunch.side ? 'Yes' : 'No'}<br>
-        Eat in: ${my_lunch.in ? 'Yes' : 'No'}
-    `;
+    let resultText = '';
+    for (const key in my_lunch) {
+        resultText += `${key}: ${my_lunch[key]}<br>`;
+    }
 
     out = document.getElementById("result")
-   
-   out.innerHTML = resultText
-  
+    out.innerHTML = resultText;
 }
 
-    
 </script>
 
 </body>
