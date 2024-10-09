@@ -1,6 +1,6 @@
 Hosted at: <br/> 
-[guessit]{https://44-563-webapps-f24.github.io/44563-webapps-f24-assignment6-Mvargas64/guessit.html)  <br/> 
-[math]{https://44-563-webapps-f24.github.io/44563-webapps-f24-assignment6-Mvargas64/math.html) <br/> 
+[guessit](https://44-563-webapps-f24.github.io/44563-webapps-f24-assignment6-Mvargas64/guessit.html)  <br/> 
+[math](https://44-563-webapps-f24.github.io/44563-webapps-f24-assignment6-Mvargas64/math.html) <br/> 
 [lunch](https://44-563-webapps-f24.github.io/44563-webapps-f24-assignment6-Mvargas64/lunch.html)
 
 
