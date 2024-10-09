@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Math page</title>
+ </head>
+<body>
+
+<h2>Mario Vargas figures out</h2>
+
+<form>
+    <label for="first_value">Enter a number </label>
+    <input type ="number" id="first_value" name="first_value" value="2" ><br>
+
+    <label for="second_value">Enter a number </label>
+    <input type ="number" id="second_value" name="second_value" value="12"> <br>
+
+    <input type="button" onclick="powerSum()" value="Compute">
+</form>
+
+
+<p id="result"></p>
+
+<script> 
+
+function powerSum(){
+    //console.log("Getting values")
+    firstValue = parseInt(document.getElementById("first_value").value);
+    secondValue = parseInt(document.getElementById("second_value").value);
+    
+    // Initialize sum to 0
+    let sum = 0;
+            
+            // Loop to calculate the sum of powers
+            for (let i = 0; i < firstValue; i++) {
+                sum += Math.pow(secondValue, i);
+            }
+
+    
+            out = document.getElementById("result")
+   
+        out.innerHTML = "sum is: "+sum;
+
+    
+}
+</script>
+
+</body>
+</html> 
